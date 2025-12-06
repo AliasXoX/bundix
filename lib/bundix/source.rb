@@ -252,7 +252,8 @@ class Bundix
       remote, hash, platform = fetcher.fetch_remotes_hash(spec, remotes) unless hash
       raise "couldn't fetch hash for #{spec.full_name}" unless hash
 
-      version = spec.version.to_s
+      
+      version = platform != "ruby" ? spec.version.to_s + "-" + platform : spec.version.to_s
       nixspec = {
         "version" => version,
         "source" => {

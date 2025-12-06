@@ -83,7 +83,7 @@ class Bundix
       [target, s]
     end
 
-    isruby = proc { |k, _| k == 'ruby' }
+    isruby = proc { |k, _| k == 'ruby' || k == 'x86_64-linux-gnu' || k == 'x86_64-linux' }
     source_key = proc { |_, v| v['source'] }
 
     nix_obj = sources.first.last
